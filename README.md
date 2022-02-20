@@ -1,1 +1,1 @@
-# Math-381
+# This repo contains all the Python files that are for Math 381 assignments. 
