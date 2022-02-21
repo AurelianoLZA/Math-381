@@ -13,7 +13,7 @@ class GameState: # I don't actually use this class!!!
         self.card = card
 
 numberOfPlayers = 4 ## the number of players
-numberOfGames = 1000000;
+numberOfGames = 10000;
 
 track = []
 wins=[] # array to keep track of how many times each player wins
@@ -62,7 +62,9 @@ for game in range(numberOfGames): ## main game loop
             # (2) currentCard-currentTokens<cardThresh, so the number of tokens offsets the points of the cards sufficiently, or
             # (3) the player has no tokens
             adjacency = (currentCard+1 in players[currentPlayer].cards) or (currentCard-1 in players[currentPlayer].cards)
-            gap = (currentCard+1 in players[currentPlayer].cards) and (currentCard+1 not in known)
+            gap = ((currentCard+2 in players[currentPlayer].cards) and (currentCard+2 not in known)) or \
+                  ((currentCard -2 in players[currentPlayer].cards) and (currentCard -2 not in known))
+
             if (adjacency or gap or (currentCard-currentTokens<cardThresh) or (players[currentPlayer].tokens==0)):
             ## currentPlayer takes the card and the tokens, if any
                 players[currentPlayer].tokens = players[currentPlayer].tokens+currentTokens
