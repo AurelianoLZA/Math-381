@@ -136,3 +136,4 @@ def play():
         # for i in range(numberOfPlayers):
         #     print (i," ",wins[i]*1./numberOfGames)
         res.append(wins[0]*1./numberOfGames)
+    return res
