@@ -1,0 +1,15 @@
+import numpy as np
+res= []
+# fig, ax = plt.subplots()
+# ax.set_ylabel('probability of winning')
+# ax.set_xlabel('probability of winning')
+x = list(range(3,36))
+for i in range(10,16):
+    for j in range(3,36):
+        summation = []
+        for time in range(10):
+            f_val = play(i,j)[0]
+            #print(f"i is {i} and j is {j} and value is {f_val}")
+            summation.append(f_val)
+        if j % 5 == 0 and j !=0:    
+            print(i,j, "interval:", min(summation), max(summation))
